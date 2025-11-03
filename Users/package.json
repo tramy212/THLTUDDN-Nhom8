@@ -1,0 +1,24 @@
+{
+  "name": "thltuddn-nhom8",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000T\u0000H\u0000L\u0000T\u0000U\u0000D\u0000D\u0000N\u0000-\u0000N\u0000h\u0000o\u0000m\u00008\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tramy212/THLTUDDN-Nhom8.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/tramy212/THLTUDDN-Nhom8/issues"
+  },
+  "homepage": "https://github.com/tramy212/THLTUDDN-Nhom8#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
