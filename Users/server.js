@@ -1,51 +1,51 @@
-const express = require("express");
-const fs = require("fs");
-const path = require("path");
-
+const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Cho phép truy cập file tĩnh
-app.use("/assets", express.static(path.join(__dirname, "assets")));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
-// Hàm render: gộp header + nội dung + footer
-function renderPage(pageName) {
-  const header = fs.readFileSync(path.join(__dirname, "views", "header1.html"), "utf8");
-  const footer = fs.readFileSync(path.join(__dirname, "views", "footer1.html"), "utf8");
-  const main = fs.readFileSync(path.join(__dirname, "views", pageName), "utf8");
+app.use('/assets', express.static(path.join(__dirname, 'public', 'assets')));
 
-  // Gộp 3 phần lại liền nhau, không bị khoảng cách
-  return `
-  <!DOCTYPE html>
-  <html lang="vi">
-    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href="/assets/css/chung.css" />
-      <link rel="stylesheet" href="/assets/css/main1.css" />
-      <link rel="stylesheet" href="/assets/css/header1.css" />
-      <link rel="stylesheet" href="/assets/css/footer1.css" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-      <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { margin: 0; padding: 0; }
-      </style>
-    </head>
-    <body>
-      ${header}
-      ${main}
-      ${footer}
-    </body>
-  </html>`;
-}
 
-// Route trang chính
-app.get("/", (req, res) => {
-  const html = renderPage("main1.html");
-  res.send(html);
+app.get('/', (req, res) => {
+  res.render('index', { pageTitle: 'Cổng Sự Kiện - DUE' });
 });
 
-// Chạy server
+app.get('/my_event', (req, res) => {
+  res.render('my_event', { pageTitle: 'Sự kiện của tôi' });
+});
+
+app.get('/event/:id', (req, res) => {
+  const eventId = req.params.id;
+  const events = {
+    '1': {
+      title: 'Lập kế hoạch kinh doanh trên 1 trang giấy',
+      image: '/assets/images/event_1.png',
+      date: 'Chủ nhật, 9 tháng 11, 2025',
+      time: '10:00 - 12:30',
+      location: 'Hội trường A',
+      registered: '30/50',
+      remaining: '20',
+      speakers: 'Doanh nhân Phạm Nhật Vượng, Diễn giả Nguyễn Thanh Hiền',
+      description: 'Hội thảo về xu hướng công nghệ tài chính và sự chuyển đổi số trong ngành nhằm mang đến cái nhìn tổng quan về sự thay đổi mạnh mẽ của công nghệ trong lĩnh vực tài chính – ngân hàng, đồng thời chia sẻ cơ hội, thách thức và giải pháp ứng dụng công nghệ trong quản trị, kinh doanh và khởi nghiệp. Sự kiện quy tụ các chuyên gia, giảng viên và sinh viên, cùng thảo luận về những xu hướng FinTech nổi bật như thanh toán không tiền mặt, ngân hàng số, blockchain và trí tuệ nhân tạo trong tài chính. Đây là cơ hội kết nối, học hỏi và cập nhật kiến thức thực tiễn về chuyển đổi số trong kỷ nguyên công nghệ 4.0. Hội thảo về xu hướng công nghệ tài chính và sự chuyển đổi số trong ngành nhằm mang đến cái nhìn tổng quan về sự thay đổi mạnh mẽ của công nghệ trong lĩnh vực tài chính – ngân hàng, đồng thời chia sẻ cơ hội, thách thức và giải pháp ứng dụng công nghệ trong quản trị, kinh doanh và khởi nghiệp. Sự kiện quy tụ các chuyên gia, giảng viên và sinh viên, cùng thảo luận về những xu hướng FinTech nổi bật như thanh toán không tiền mặt, ngân hàng số, blockchain và trí tuệ nhân tạo trong tài chính. Đây là cơ hội kết nối, học hỏi và cập nhật kiến thức thực tiễn về chuyển đổi số trong kỷ nguyên công nghệ 4.0.Hội thảo về xu hướng công nghệ tài chính và sự chuyển đổi số trong ngành nhằm mang đến cái nhìn tổng quan về sự thay đổi mạnh mẽ của công nghệ trong lĩnh vực tài chính – ngân hàng, đồng thời chia sẻ cơ hội, thách thức và giải pháp ứng dụng công nghệ trong quản trị, kinh doanh và khởi nghiệp. Sự kiện quy tụ các chuyên gia, giảng viên và sinh viên, cùng thảo luận về những xu hướng FinTech nổi bật. Đây là cơ hội kết nối, học hỏi và cập nhật kiến thức thực tiễn về chuyển đổi số trong kỷ nguyên công nghệ 4.0.',
+      type: 'Workshop',
+      organizer: 'Khoa Thống kê - Tin học'
+    }
+  };
+  const event = events[eventId] || events['1'];
+
+  res.render('event_detail', { 
+    pageTitle: event.title,
+    event: event 
+  });
+});
+
+app.get('/event_review', (req, res) => {
+  res.render('event_review', { pageTitle: 'Đánh giá sự kiện'});
+});
+
 app.listen(PORT, () => {
-  console.log(`🚀 Server đang chạy: http://localhost:${PORT}`);
+  console.log(`Server chạy tại http://localhost:${PORT}`);
 });
