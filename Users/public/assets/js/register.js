@@ -37,34 +37,53 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.classList.remove('active');
   });
 
-  // === HÀM XỬ LÝ DROPDOWN (TÁI SỬ DỤNG) ===
-  function initDropdown(dropdownId) {
-    const dropdown = document.getElementById(dropdownId);
-    if (!dropdown) return;
-    const text = dropdown.querySelector('.text-wrapper-k, .text-wrapper-27');
-    const items = dropdown.querySelectorAll('.dropdown-item');
+function initDropdown(dropdownId) {
+  const dropdown = document.getElementById(dropdownId);
+  if (!dropdown) return;
 
-    // Click vào frame → mở/đóng
-    dropdown.addEventListener('click', (e) => {
-      e.stopPropagation();
-      // Đóng tất cả dropdown khác
-      document.querySelectorAll('.frame-3').forEach(d => {
-        if (d.id !== dropdownId) d.classList.remove('open');
-      });
-      dropdown.classList.toggle('open');
-    });
+  // Lấy phần tử hiển thị (có thể là .text-wrapper-k hoặc .text-wrapper-27)
+  const textEl = dropdown.querySelector('.text-wrapper-k, .text-wrapper-27');
+  if (!textEl) return;
 
-    // Chọn mục
-    items.forEach(item => {
-      item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const label = item.textContent.trim();
-        text.textContent = label;
-        dropdown.classList.remove('open');
-      });
-    });
+  // Đảm bảo có data-value mặc định
+  if (!textEl.hasAttribute('data-value')) {
+    textEl.dataset.value = '';
   }
 
+  const items = dropdown.querySelectorAll('.dropdown-item');
+
+  // === MỞ/ĐÓNG DROPDOWN KHI CLICK VÀO VÙNG CHỌN ===
+  dropdown.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    // Đóng tất cả dropdown khác (dựa trên class chung)
+    document.querySelectorAll('.frame-3, .frame-15, .frame-16').forEach(d => {
+      if (d.id !== dropdownId) {
+        d.classList.remove('open');
+      }
+    });
+
+    // Toggle dropdown hiện tại
+    dropdown.classList.toggle('open');
+  });
+
+  // === KHI CHỌN MỘT MỤC ===
+  items.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      const label = item.textContent.trim();
+      const value = item.getAttribute('data-value') || '';
+
+      // Cập nhật text + data-value
+      textEl.textContent = label;
+      textEl.dataset.value = value;
+
+      // Đóng dropdown
+      dropdown.classList.remove('open');
+    });
+  });
+}
   // === KHỞI TẠO CẢ 2 DROPDOWN ===
   initDropdown('khoaDropdown');
   initDropdown('CNDropdown');

@@ -94,7 +94,7 @@
   </div>
 </div>
 
-  <!-- MODAL ĐĂNG KÝ -->
+   <!-- MODAL ĐĂNG KÝ -->
   <div id="registrationModal" class="modal-overlay">
     <div class="modal-content">
 
@@ -126,52 +126,46 @@
           <span class="text-wrapper-4">Câu hỏi thắc mắc</span>
         </p>
         <div class="frame-t">
-          <div class="text-wrapper-6">Nhập họ tên</div>
+          <input type="text" id="fullName" class="input-inside" placeholder="Nhập họ tên" required>
         </div>
         <div class="div-wrapper">
-          <div class="text-wrapper-7">Nhập email</div>
+          <input type="email" id="email" class="input-inside" placeholder="Nhập email" required>
         </div>
         <div class="frame-sv">
-          <div class="text-wrapper-8">Nhập mã sinh viên</div>
+          <input type="text" id="mssv" class="input-inside" placeholder="Nhập mã sinh viên" required>
         </div>
        <div class="frame-3" id="khoaDropdown">
-          <div class="text-wrapper-k">Chọn khoa</div>
-          <div class="gridicons-dropdown">
-            <i class="fas fa-chevron-down"></i>
-          </div>
-
-          <!-- Danh sách khoa -->
+          <div class="text-wrapper-k" data-value="">Chọn khoa</div>
+          <div class="gridicons-dropdown"><i class="fas fa-chevron-down"></i></div>
           <div class="dropdown-menu">
-            <div class="dropdown-item" data-value="CNTT">Công nghệ thông tin</div>
-            <div class="dropdown-item" data-value="KTD">Kỹ thuật điện</div>
-            <div class="dropdown-item" data-value="QTKD">Quản trị kinh doanh</div>
-            <div class="dropdown-item" data-value="KETOAN">Kế toán</div>
-            <div class="dropdown-item" data-value="NN">Ngôn ngữ Anh</div>
+            <div class="dropdown-item" data-value="TKTH">Thống kê - Tin học</div>
+            <div class="dropdown-item" data-value="TMDT">Thương mại điện tử</div>
+            <div class="dropdown-item" data-value="KDQT">Kinh doanh quốc tế</div>
+            <div class="dropdown-item" data-value="MKT">Marketing</div>
+            <div class="dropdown-item" data-value="DL">Du lịch</div>
           </div>
         </div>
         <div class="frame-cn" id="CNDropdown">
-          <div class="text-wrapper-k">Chọn chuyên ngành</div>
-          <div class="gridicons-dropdown">
-            <i class="fas fa-chevron-down"></i>
-          </div>
-            <div class="dropdown-menu">
-            <div class="dropdown-item" data-value="CNTT">An toàn bảo mật thông tin</div>
-            <div class="dropdown-item" data-value="KTD">Tin học quản lý</div>
-            <div class="dropdown-item" data-value="NN">Thống kê kinh doanh</div>
+          <div class="text-wrapper-k" data-value="">Chọn chuyên ngành</div>
+          <div class="gridicons-dropdown"><i class="fas fa-chevron-down"></i></div>
+          <div class="dropdown-menu">
+            <div class="dropdown-item" data-value="THQL">Tin học quản lý</div>
+            <div class="dropdown-item" data-value="TTNT">Trí tuệ nhân tạo</div>
+            <div class="dropdown-item" data-value="TKKD">Thống kê kinh doanh</div>
             <div class="dropdown-item" data-value="QTKD">Quản trị kinh doanh</div>
             <div class="dropdown-item" data-value="KETOAN">Kế toán</div>
           </div>
         </div>
         <div class="frame-5">
-          <div class="text-wrapper-10">Nhập lớp sinh hoạt</div>
+          <input type="text" id="class" class="input-inside" placeholder="Nhập lớp sinh hoạt" required>
         </div>
         <div class="frame-6">
-          <p class="p">Hãy đặt câu hỏi của bạn</p>
+          <textarea id="question" class="input-inside" placeholder="Hãy đặt câu hỏi của bạn" rows="5"></textarea>
         </div>
         <p class="text-wrapper-11">Bạn sẽ nhận email thông báo về sự kiện này</p>
-      <div class="frame-7" onclick="confirmRegisterAndSendEmail()">
-        <div class="text-wrapper-12">Xác nhận đăng ký</div>
-      </div>
+        <div class="frame-7" onclick="confirmRegisterAndSendEmail()">
+          <div class="text-wrapper-12">Xác nhận đăng ký</div>
+        </div>
         <div class="info-icon">
           <i class="fas fa-info-circle"></i>
         </div>
@@ -183,14 +177,14 @@
   </div>
 
   <div id="successToast" class="toast">
-          <i class="fas fa-check-circle"></i>
-          <span>Đăng ký thành công! Email xác nhận đã được gửi.</span>
-        </div>
+    <i class="fas fa-check-circle"></i>
+    <span>Đăng ký thành công! Email xác nhận đã được gửi.</span>
+  </div>
 
-<div id="errorToast" class="toast error-toast">
-  <i class="fas fa-exclamation-triangle"></i>
-  <span>Có lỗi xảy ra! Vui lòng thử lại.</span>
-</div>
+  <div id="errorToast" class="toast error-toast">
+    <i class="fas fa-exclamation-triangle"></i>
+    <span>Có lỗi xảy ra! Vui lòng thử lại.</span>
+  </div>
   <script src="/assets/js/register.js"></script>
   <script src="/assets/js/notification.js"></script>
 

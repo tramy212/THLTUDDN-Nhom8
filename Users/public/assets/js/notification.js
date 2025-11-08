@@ -85,49 +85,84 @@ function addNotification() {
   }, 100000);
 }
 
-
 function confirmRegisterAndSendEmail() {
-  const registerButton = document.getElementById('registerButton'); 
+  // Dùng optional chaining để tránh lỗi
+  const fullName = document.getElementById('fullName')?.value.trim();
+  const email = document.getElementById('email')?.value.trim();
+  const mssv = document.getElementById('mssv')?.value.trim();
+  const khoa = document.getElementById('khoaDropdown')?.querySelector('.text-wrapper-k')?.dataset.value;
+  const chuyenNganh = document.getElementById('CNDropdown')?.querySelector('.text-wrapper-k')?.dataset.value;
+  const lop = document.getElementById('class')?.value.trim();
 
+  // === VALIDATE ===// 
+  if (!fullName || !email || !mssv || !khoa || !chuyenNganh || !lop) {
+    showErrorToast('Vui lòng điền đầy đủ các trường bắt buộc!');
+    return;
+  }
+  if (!/^\d{12}$/.test(mssv)) {
+    showErrorToast('Mã số sinh viên không hợp lệ!');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showErrorToast('Email không hợp lệ!');
+    return;
+  }
+
+  // === GỬI EMAIL ===
   emailjs.send(SERVICE_ID, TEMPLATE_ID, {
-    user_name: 'LE HOANG ANH THU',
-    user_email: 'leanhthu0773@gmail.com',
+    user_name: fullName,
+    user_email: email,
     event_name: 'Lập kế hoạch kinh doanh trên 1 trang giấy',
     event_time: '18/10/2025 • 10:00–12:30',
     event_location: 'Hội trường A',
     register_date: new Date().toLocaleDateString('vi-VN')
   }).then(() => {
+    // Đóng modal
     const modal = document.getElementById('registrationModal');
     if (modal) modal.classList.remove('active');
 
-    const toast = document.getElementById('successToast');
-    if (toast) {
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 4000);
-    }
+    // Toast thành công
+    showSuccessToast('Đăng ký thành công! Email xác nhận đã được gửi.');
 
+    // Thêm thông báo
     addNotification();
-    
-    // === CẬP NHẬT NÚT ĐĂNG KÝ SAU KHI GỬI EMAIL THÀNH CÔNG ===
+
+    // Cập nhật nút
+    const registerButton = document.getElementById('registerButton');
     if (registerButton) {
-      // 1. Lấy phần tử chứa văn bản bên trong nút
       const buttonTextElement = registerButton.querySelector('.text-wrapper-13');
-      
-      // 2. Đổi văn bản và màu sắc
       if (buttonTextElement) {
-          buttonTextElement.textContent = 'ĐÃ ĐĂNG KÝ'; 
+        buttonTextElement.textContent = 'ĐÃ ĐĂNG KÝ';
       }
-      
-      // 3. Đổi màu nút (thêm class vào thẻ DIV cha)
-      registerButton.classList.remove('frame-7'); // Xóa class màu cũ nếu cần
-      registerButton.classList.add('btn-registered'); // Thêm class màu vàng mới
-      
-      // 4. ĐÁNH DẤU LÀ ĐÃ ĐĂNG KÝ để JS biết
+
+      // SỬA: class đúng là frame-7 (xem HTML)
+      registerButton.classList.remove('frame-7');
+      registerButton.classList.add('btn-registered');
       registerButton.setAttribute('data-registered', 'true');
     }
 
   }).catch(err => {
-    console.error('Lỗi:', err);
-    alert('Gửi thất bại! Vui lòng thử lại.');
+    console.error('Lỗi EmailJS:', err);
+    showErrorToast('Gửi thất bại! Vui lòng thử lại.');
   });
+}
+
+// === TOAST THÀNH CÔNG ===
+function showSuccessToast(msg) {
+  const toast = document.getElementById('successToast');
+  if (toast) {
+    toast.querySelector('span').textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
+}
+
+// === TOAST LỖI ===
+function showErrorToast(msg) {
+  const toast = document.getElementById('errorToast');
+  if (toast) {
+    toast.querySelector('span').textContent = msg;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+  }
 }
