@@ -1,0 +1,191 @@
+<%- include('partials/header') %>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link rel="stylesheet" href="/assets/css/event.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<div class="XEM-CHI-TIT-s-KIN">
+
+  <!-- BANNER SECTION -->
+  <div class="banner-section">
+    <img class="banner" src="/assets/images/banner.png" alt="Banner" />
+    <div class="banner-overlay"></div>
+    <div class="banner-title">SỰ KIỆN TẠI DUE</div>
+    <p class="banner-subtitle">Khám phá và đăng ký tham gia các workshop, seminar và hội thảo chuyên môn</p>
+  </div>
+
+  <!-- QUAY LẠI (Back Button) -->
+    <a href="/" class="quay-l-i">
+    <i class="fa-solid fa-arrow-left"></i> Quay lại
+    </a>
+
+  <!-- NỘI DUNG CHÍNH -->
+  <div class="event-content">
+    <!-- LEFT COLUMN: Image and Tags -->
+    <div class="left-column">
+      <img class="image" src="<%= event.image %>" alt="<%= event.title %>" />
+      
+      <!-- TAG KHOA -->
+      <div class="frame">
+        <p class="text-wrapper"><%= event.organizer %></p>
+      </div>
+
+      <!-- TIÊU ĐỀ -->
+      <p class="div"><%= event.title %></p>
+
+      <!-- MÔ TẢ -->
+      <p class="h-i-th-o-v-xu-h-ng-c">
+        <%= event.description %>
+      </p>
+    </div>
+
+    <!-- RIGHT COLUMN: Info Box and Button -->
+    <div class="right-column">
+      <!-- NÚT ĐĂNG KÝ -->
+      <div class="frame-7" id="registerButton">
+        <div class="text-wrapper-13">ĐĂNG KÝ NGAY</div>
+      </div>
+
+
+      <!-- KHỐI THÔNG TIN CHI TIẾT -->
+      <div class="frame-2">
+        <div class="text-wrapper-2">THÔNG TIN CHI TIẾT</div>
+
+        <div class="info-row">
+        <div class="lets-icons-time">
+            <i class="fa-solid fa-clock"></i>
+        </div>
+          <p class="p"><%= event.date %></p>
+        </div>
+
+        <div class="info-row">
+          <div class="text-wrapper-9"><%= event.time %></div>
+        </div>
+
+        <div class="info-row">
+        <div class="tdesign-location">
+            <i class="fa-solid fa-location-dot"></i>
+        </div>
+          <div class="text-wrapper-3">Địa điểm</div>
+          <div class="text-wrapper-6"><%= event.location %></div>
+        </div>
+
+        <div class="info-row">
+        <div class="ion-people-outline">
+            <i class="fa-solid fa-users"></i>
+        </div>
+          <div class="text-wrapper-4">Số lượng</div>
+          <p class="element-ng-i-ng-k-c-n">
+            <span class="span"><%= event.registered %></span>
+            <span class="text-wrapper-7">(<%= event.remaining %>)</span>
+          </p>
+        </div>
+
+        <div class="info-row">
+          <div class="text-wrapper-5">Thành phần tham dự</div>
+          <p class="text-wrapper-8"><%= event.speakers %></p>
+        </div>
+      </div>
+      
+      <div class="frame-3">
+        <div class="rectangle-2"></div>
+        <div class="text-wrapper-10">Workshop</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+   <!-- MODAL ĐĂNG KÝ -->
+  <div id="registrationModal" class="modal-overlay">
+    <div class="modal-content">
+
+      <div class="FORM-NG-k">
+        <div class="text-wrapper">Đăng ký tham gia</div>
+        <p class="i-n-th-ng-tin-c-a-b">
+          <span class="span">Điền thông tin của bạn để đăng ký. Còn</span>
+          <span class="text-wrapper-2">20 chỗ trống.</span>
+        </p>
+        <p class="h-v-t-n">
+          <span class="text-wrapper-4">Họ và tên <span style="color: red;">*</span></span>
+        </p>
+        <p class="email">
+          <span class="text-wrapper-4">Email <span style="color: red;">*</span></span>
+        </p>
+        <p class="m-s-sinh-vi-n">
+          <span class="text-wrapper-4">Mã số sinh viên <span style="color: red;">*</span></span>
+        </p>
+        <p class="khoa">
+          <span class="text-wrapper-4">Khoa <span style="color: red;">*</span></span>
+        </p>
+        <p class="chuy-n-ng-nh">
+          <span class="text-wrapper-4">Chuyên ngành <span style="color: red;">*</span></span>
+        </p>
+        <p class="l-p">
+          <span class="text-wrapper-4">Lớp <span style="color: red;">*</span></span>
+        </p>
+        <p class="chtm">
+          <span class="text-wrapper-4">Câu hỏi thắc mắc</span>
+        </p>
+        <div class="frame-t">
+          <input type="text" id="fullName" class="input-inside" placeholder="Nhập họ tên" required>
+        </div>
+        <div class="div-wrapper">
+          <input type="email" id="email" class="input-inside" placeholder="Nhập email" required>
+        </div>
+        <div class="frame-sv">
+          <input type="text" id="mssv" class="input-inside" placeholder="Nhập mã sinh viên" required>
+        </div>
+       <div class="frame-3" id="khoaDropdown">
+          <div class="text-wrapper-k" data-value="">Chọn khoa</div>
+          <div class="gridicons-dropdown"><i class="fas fa-chevron-down"></i></div>
+          <div class="dropdown-menu">
+            <div class="dropdown-item" data-value="TKTH">Thống kê - Tin học</div>
+            <div class="dropdown-item" data-value="TMDT">Thương mại điện tử</div>
+            <div class="dropdown-item" data-value="KDQT">Kinh doanh quốc tế</div>
+            <div class="dropdown-item" data-value="MKT">Marketing</div>
+            <div class="dropdown-item" data-value="DL">Du lịch</div>
+          </div>
+        </div>
+        <div class="frame-cn" id="CNDropdown">
+          <div class="text-wrapper-k" data-value="">Chọn chuyên ngành</div>
+          <div class="gridicons-dropdown"><i class="fas fa-chevron-down"></i></div>
+          <div class="dropdown-menu">
+            <div class="dropdown-item" data-value="THQL">Tin học quản lý</div>
+            <div class="dropdown-item" data-value="TTNT">Trí tuệ nhân tạo</div>
+            <div class="dropdown-item" data-value="TKKD">Thống kê kinh doanh</div>
+            <div class="dropdown-item" data-value="QTKD">Quản trị kinh doanh</div>
+            <div class="dropdown-item" data-value="KETOAN">Kế toán</div>
+          </div>
+        </div>
+        <div class="frame-5">
+          <input type="text" id="class" class="input-inside" placeholder="Nhập lớp sinh hoạt" required>
+        </div>
+        <div class="frame-6">
+          <textarea id="question" class="input-inside" placeholder="Hãy đặt câu hỏi của bạn" rows="5"></textarea>
+        </div>
+        <p class="text-wrapper-11">Bạn sẽ nhận email thông báo về sự kiện này</p>
+        <div class="frame-7" onclick="confirmRegisterAndSendEmail()">
+          <div class="text-wrapper-12">Xác nhận đăng ký</div>
+        </div>
+        <div class="info-icon">
+          <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="close-btn">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="successToast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    <span>Đăng ký thành công! Email xác nhận đã được gửi.</span>
+  </div>
+
+  <div id="errorToast" class="toast error-toast">
+    <i class="fas fa-exclamation-triangle"></i>
+    <span>Có lỗi xảy ra! Vui lòng thử lại.</span>
+  </div>
+  <script src="/assets/js/register.js"></script>
+  <script src="/assets/js/notification.js"></script>
+
+<%- include('partials/footer') %>

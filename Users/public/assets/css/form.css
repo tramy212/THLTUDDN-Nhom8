@@ -1,0 +1,411 @@
+.FORM-NG-k {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #0867b0;
+  width: 100%;
+  min-width: 1064px;
+  min-height: 783px;
+  position: relative;
+}
+
+.FORM-NG-k .text-wrapper {
+  position: absolute;
+  top: 38px;
+  left: 385px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #0867b0;
+  font-size: 30px;
+  letter-spacing: 3.30px;
+  line-height: 39.0px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .i-n-th-ng-tin-c-a-b {
+  position: absolute;
+  top: 80px;
+  left: 189px;
+  width: 698px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+}
+
+.FORM-NG-k .span {
+  color: #929292;
+  letter-spacing: 0.53px;
+}
+
+.FORM-NG-k .text-wrapper-2 {
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #e5533d;
+  letter-spacing: 0.53px;
+}
+
+.FORM-NG-k .text-wrapper-3 {
+  color: #000000;
+  letter-spacing: 0.53px;
+}
+
+.FORM-NG-k .h-v-t-n {
+  position: absolute;
+  top: 136px;
+  left: 51px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .text-wrapper-4 {
+  font-weight: 500;
+  color: #0867b0;
+  letter-spacing: 0.53px;
+}
+
+.FORM-NG-k .text-wrapper-5 {
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: 0.53px;
+}
+
+.FORM-NG-k .email {
+  position: absolute;
+  top: 242px;
+  left: 51px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .m-s-sinh-vi-n {
+  position: absolute;
+  top: 351px;
+  left: 51px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .khoa {
+  position: absolute;
+  top: 136px;
+  left: 565px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .chuy-n-ng-nh {
+  position: absolute;
+  top: 242px;
+  left: 565px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .l-p {
+  position: absolute;
+  top: 351px;
+  left: 565px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .div {
+  position: absolute;
+  top: 459px;
+  left: 47px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #0867b0;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .frame {
+  top: 172px;
+  left: 51px;
+  width: 446px;
+  height: 59px;
+  display: flex;
+  border-color: #0867b0;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.FORM-NG-k .text-wrapper-6 {
+  margin-top: 15px;
+  width: 152px;
+  height: 29px;
+  margin-left: 19px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #0867b080;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .div-wrapper {
+  top: 277px;
+  left: 51px;
+  width: 446px;
+  height: 59px;
+  display: flex;
+  border-color: #0867b0;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.FORM-NG-k .text-wrapper-7 {
+  margin-top: 15px;
+  width: 139px;
+  height: 29px;
+  margin-left: 19px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #0867b080;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .frame-2 {
+  top: 385px;
+  left: 51px;
+  width: 446px;
+  height: 59px;
+  display: flex;
+  border-color: #0867b0;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.FORM-NG-k .text-wrapper-8 {
+  margin-top: 15px;
+  width: 230px;
+  height: 29px;
+  margin-left: 19px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #0867b080;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .frame-3 {
+  top: 172px;
+  left: 565px;
+  width: 446px;
+  height: 59px;
+  border-color: #0867b0;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.FORM-NG-k .text-wrapper-9 {
+  position: absolute;
+  top: 15px;
+  left: 19px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #0867b080;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .gridicons-dropdown {
+  position: absolute;
+  width: 11.21%;
+  height: 84.75%;
+  top: 8.47%;
+  left: 88.79%;
+  aspect-ratio: 1;
+}
+
+.FORM-NG-k .vector {
+  position: absolute;
+  width: 41.67%;
+  height: 20.83%;
+  top: 41.67%;
+  left: 29.17%;
+}
+
+.FORM-NG-k .frame-4 {
+  top: 277px;
+  left: 565px;
+  width: 446px;
+  height: 59px;
+  border-color: #0867b0;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.FORM-NG-k .frame-5 {
+  top: 385px;
+  left: 565px;
+  width: 446px;
+  height: 59px;
+  display: flex;
+  border-color: #0867b0;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.FORM-NG-k .text-wrapper-10 {
+  margin-top: 15px;
+  width: 236px;
+  height: 29px;
+  margin-left: 19px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #0867b080;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+  white-space: nowrap;
+}
+
+.FORM-NG-k .frame-6 {
+  top: 497px;
+  left: 51px;
+  width: 960px;
+  height: 177px;
+  display: flex;
+  border-color: #0867b0;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.FORM-NG-k .p {
+  margin-top: 15px;
+  width: 413px;
+  height: 29px;
+  margin-left: 19px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #0867b080;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+}
+
+.FORM-NG-k .text-wrapper-11 {
+  position: absolute;
+  top: 708px;
+  left: 95px;
+  width: 565px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #0867b080;
+  font-size: 22px;
+  letter-spacing: 2.42px;
+  line-height: 28.6px;
+}
+
+.FORM-NG-k .frame-7 {
+  top: 699px;
+  left: 763px;
+  width: 248px;
+  height: 54px;
+  display: flex;
+  background-color: #0867b0;
+  position: absolute;
+  border-radius: 8px;
+  border: 1px solid;
+}
+
+.FORM-NG-k .text-wrapper-12 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 248px;
+  height: 54px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.FORM-NG-k .material-symbols {
+  position: absolute;
+  top: 705px;
+  left: 51px;
+  width: 35px;
+  height: 35px;
+  aspect-ratio: 1;
+}
+
+.FORM-NG-k .img {
+  position: absolute;
+  width: 83.33%;
+  height: 83.33%;
+  top: 8.33%;
+  left: 8.33%;
+}
+
+.FORM-NG-k .vector-wrapper {
+  position: absolute;
+  top: 44px;
+  left: 971px;
+  width: 35px;
+  height: 35px;
+  aspect-ratio: 1;
+}
+
+.FORM-NG-k .vector-2 {
+  position: absolute;
+  width: 58.33%;
+  height: 58.33%;
+  top: 20.83%;
+  left: 20.83%;
+}
