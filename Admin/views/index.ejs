@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý thông báo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/dashboard.css">
+    <link rel="stylesheet" href="/assets/css/notification.css">
+    <style>
+        :root {
+            --primary: #00c4b4;
+            --green: #28a745;
+            --border: #ddd;
+            --bg: #f8f9fa;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--bg);
+            margin: 0;
+        }
+        /* ĐÚNG NHƯ DASHBOARD */
+        .main-content {
+            padding: 32px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+            min-height: calc(100vh - 80px); /* trừ header */
+        }
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        .page-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin: 0;
+        }
+        .back-btn {
+            font-size: 35px;
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            color: var(--primary);
+        }
+        /* Notification container – đẹp như dashboard card */
+        #notification-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .notification-item {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .notification-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+        .notification-item.unread {
+            border-left: 5px solid var(--primary);
+            background: #f0fdfc;
+        }
+        .notif-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .notif-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: #1a1a1a;
+        }
+        .notif-time {
+            font-size: 13px;
+            color: #888;
+        }
+        .notif-body {
+            color: #444;
+            line-height: 1.6;
+        }
+        .mark-read {
+            margin-top: 16px;
+            padding: 8px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .mark-read:hover {
+            background: #00a89a;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <%- include('partials/header') %>
+
+    <!-- SIDEBAR -->
+    <%- include('partials/menu') %>
+
+    <!-- MAIN CONTENT – ĐÚNG NHƯ DASHBOARD -->
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Quản lý thông báo</h1>
+        </div>
+
+        <div id="notification-container">
+        </div>
+    </div>
+
+    <script src="/assets/js/storage.js"></script>
+    <script src="/assets/js/notification.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Giữ nguyên logic cũ
+            NotificationApp.init();
+
+            // Tự động thêm class "show" cho animation như dashboard (nếu cần)
+            setTimeout(() => {
+                document.querySelectorAll('.notification-item').forEach((el, i) => {
+                    setTimeout(() => el.classList.add('show'), i * 100);
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
