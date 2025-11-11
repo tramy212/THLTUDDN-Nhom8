@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Danh sách tham gia – DUE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/dashboard.css" />
+  <link rel="stylesheet" href="/assets/css/checkin.css" />
+</head>
+<body>
+<div class="trang-ch">
+  <!-- HEADER -->
+  <%- include('partials/header') %>
+  <!-- SIDEBAR -->
+  <%- include('partials/menu') %>
+
+  <!-- MAIN CONTENT – ĐÃ FIX LỆCH 100% -->
+  <div class="main-content" id="mainContent">
+    
+    <!-- FILTER BAR + NÚT CHECK-IN -->
+    <div class="events-filter-bar">
+      <div class="filter-tabs">
+        <button class="filter-tab active">Tất cả</button>
+        <button class="filter-tab">Đã check-in</button>
+        <button class="filter-tab">Chưa check-in</button>
+      </div>
+
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <div class="event-selector">
+          <select id="eventSelect">
+            <option>Tất cả các sự kiện</option>
+            <option>Ứng dụng AI nâng cao chất lượng trong công việc</option>
+            <option>Nâng cao năng lực trong thời đại chuyển đổi số</option>
+            <option>Khám phá các ứng dụng tiềm năng của AI và CHATGPT</option>
+            <option>Lập kế hoạch kinh doanh trên 1 trang giấy</option>
+          </select>
+        </div>
+
+        <a href="/checkin" style="text-decoration: none;">
+          <button class="btn-create-event">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m-7-7h14"/></svg>
+            Check-in
+          </button>
+        </a>
+      </div>
+    </div>
+
+    <!-- TABLE CARD – NẰM ĐÚNG KHUNG, KHÔNG LỆCH -->
+    <div class="table-card">
+      <div class="table-header">
+        <h3>Danh sách người tham gia</h3>
+        <div style="font-size: 13px; color: var(--muted);">
+          Tổng: <strong style="color: var(--dark);">127</strong> người
+        </div>
+      </div>
+
+      <table class="events-table" style="width: 100%">
+        <thead>
+          <tr>
+            <th style="width: 10%">Họ và tên</th>
+            <th style="width: 10%;">Thông tin sinh viên</th>
+            <th style="width: 20%;">Sự kiện tham gia</th>
+            <th style="width: 10%;">Trạng thái</th>
+            <th style="width: 50%;">Câu hỏi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="user-name">Nguyễn Văn A</div>
+              <div class="user-email">nva@example.com</div>
+            </div>
+          </div>
+        </td>
+            <td>
+              <div><strong>MSSV:</strong> 221121514233</div>
+              <div>Lớp: 48K14.2</div>
+              <div>Khoa: Thống kê - Tin học</div>
+            </td>
+            <td>Ứng dụng AI nâng cao chất lượng trong công việc</td>
+            <td><span class="status-badge status-checked">Đã check-in</span></td>
+            <td><span class="question">Sự kiện có tài liệu không?</span></td>
+          </tr>
+
+          <tr>
+            <td>
+            <div class="user-name">Trần Thị B</div>
+            <div class="user-email">ttb@example.com</div>
+          </div>
+        </div>
+      </td>
+            <td>
+              <div><strong>MSSV:</strong> 221121514232</div>
+              <div>Lớp: 48K05.2</div>
+              <div>Khoa: Quản trị kinh doanh</div>
+            </td>
+            <td>Nâng cao năng lực trong thời đại chuyển đổi số</td>
+            <td><span class="status-badge status-notchecked">Chưa check-in</span></td>
+            <td><span class="question">–</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="user-name">Hoàng Văn E</div>
+              <div class="user-email">hve@example.com</div>
+            </div>
+          </div>
+        </td>
+            <td>
+              <div><strong>MSSV:</strong> 221121514228</div>
+              <div>Lớp: 48K05.2</div>
+              <div>Khoa: Quản trị kinh doanh</div>
+            </td>
+            <td>Nâng cao năng lực trong thời đại chuyển đổi số</td>
+            <td><span class="status-badge status-notchecked">Chưa check-in</span></td>
+            <td><span class="question">–</span></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="user-name">Vũ Thị F</div>
+              <div class="user-email">vtf@example.com</div>
+            </div>
+          </div>
+        </td>
+            <td>
+              <div><strong>MSSV:</strong> 221121514229</div>
+              <div>Lớp: 48K05.2</div>
+              <div>Khoa: Quản trị kinh doanh</div>
+            </td>
+            <td>Lập kế hoạch kinh doanh trên 1 trang giấy</td>
+            <td><span class="status-badge status-notchecked">Chưa check-in</span></td>
+            <td><span class="question">Làm thế nào để áp dụng mô hình này hiệu quả?</span></td>
+          </tr>
+
+          <tr>  
+            <td>
+            <div class="user-name">Lê Văn C</div>
+            <div class="user-email">hve@example.com</div>
+          </div>
+        </div>
+      </td>
+
+            <td>
+              <div><strong>MSSV:</strong> 221121514231</div>
+              <div>Lớp: 48K22.1</div>
+              <div>Khoa: Kế toán</div>
+            </td>
+            <td>Khám phá các ứng dụng tiềm năng của AI và CHATGPT</td>
+            <td><span class="status-badge status-checked">Đã check-in</span></td>
+            <td><span class="question">–</span></td>
+          </tr>
+ <tr>
+
+  <td>
+    <div class="user-name">Phạm Thị D</div>
+    <div class="user-email">ptd@example.com</div>
+  </div>
+</div>
+</td>
+            <td>
+              <div><strong>MSSV:</strong> 221121514230</div>
+              <div>Lớp: 48K14.2</div>
+              <div>Khoa: Thống kê - Tin học</div>
+            </td>
+            <td>Ứng dụng AI nâng cao chất lượng trong công việc</td>
+            <td><span class="status-badge status-checked">Đã check-in</span></td>
+            <td><span class="question">–</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PHÂN TRANG -->
+    <div style="display: flex; justify-content: center; margin-top: 32px; gap: 8px;">
+      <button class="icon-btn" title="Trang trước">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="icon-btn" style="background: var(--primary); color: white;">1</button>
+      <button class="icon-btn">2</button>
+      <button class="icon-btn">3</button>
+      <button class="icon-btn">...</button>
+      <button class="icon-btn">10</button>
+      <button class="icon-btn" title="Trang sau">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- TOOLTIP -->
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+  // Script gốc của dashboard (giữ nguyên)
+  const menuToggle = document.getElementById('menuToggle');
+  const sidebar = document.getElementById('sidebar');
+  const mainContent = document.getElementById('mainContent');
+  const searchToggle = document.getElementById('searchToggle');
+  const searchWrapper = document.getElementById('searchWrapper');
+  const notificationToggle = document.getElementById('notificationToggle');
+  const notificationDropdown = document.getElementById('notificationDropdown');
+  const tooltip = document.getElementById('tooltip');
+
+  menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('collapsed');
+    mainContent.classList.toggle('expanded');
+  });
+
+  // Filter tabs
+  document.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+
+  // Tooltip sidebar collapsed
+  document.querySelectorAll('[data-tooltip]').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      if (sidebar.classList.contains('collapsed')) {
+        tooltip.textContent = el.dataset.tooltip;
+        tooltip.classList.add('show');
+        const rect = el.getBoundingClientRect();
+        tooltip.style.top = `${rect.top + rect.height / 2 - tooltip.offsetHeight / 2}px`;
+        tooltip.style.left = `${rect.right + 8}px`;
+      }
+    });
+    el.addEventListener('mouseleave', () => tooltip.classList.remove('show'));
+  });
+</script>
+</body>
+</html>

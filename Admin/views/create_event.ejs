@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tạo sự kiện – Cổng sự kiện DUE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/create_event.css" />
+  <link rel="stylesheet" href="/assets/css/dashboard.css">
+</head>
+<body>
+  <div class="trang-ch">
+
+
+  <!-- HEADER -->
+  <%- include('partials/header') %>
+
+  <!-- SIDEBAR -->
+  <%- include('partials/menu') %>
+
+    <!-- NỘI DUNG CHÍNH -->
+    <main class="main-content">
+      <div class="event-container">
+
+
+        <!-- HEADER FORM -->
+        <div class="form-header">
+      </a>
+          <a href="/events" style="text-decoration: none;" class="btn-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            <span>Quay lại</span>
+          </a>
+          <h2 class="form-title">Tạo sự kiện mới</h2>
+        </div>
+
+
+        <!-- FORM -->
+        <form class="event-form" id="eventForm">
+          <!-- [TẤT CẢ CÁC FIELD NHƯ TRƯỚC] -->
+          <!-- (Giữ nguyên toàn bộ từ Tên sự kiện → Nút Tạo sự kiện) -->
+          <!-- ĐÃ ĐƯỢC SAO CHÉP ĐẦY ĐỦ TỪ BẢN TRƯỚC -->
+
+
+          <!-- Tên sự kiện -->
+          <div class="form-group">
+            <label>Tên sự kiện <span class="required">*</span></label>
+            <input type="text" placeholder="Nhập tên sự kiện" required />
+          </div>
+
+
+          <!-- Đơn vị tổ chức -->
+          <div class="form-group">
+            <label>Đơn vị tổ chức <span class="required">*</span></label>
+            <input type="text" placeholder="Nhập đơn vị tổ chức" required />
+          </div>
+
+
+          <!-- Mô tả -->
+          <div class="form-group">
+            <label>Mô tả sự kiện</label>
+            <textarea rows="3" placeholder="Nhập mô tả sự kiện"></textarea>
+          </div>
+
+
+          <!-- Loại + Số lượng -->
+          <div class="form-row">
+            <div class="form-group half">
+              <label>Loại sự kiện <span class="required">*</span></label>
+              <select required>
+                <option value="">Chọn loại sự kiện</option>
+                <option>Workshop</option>
+                <option>Seminar</option>
+                <option>Hội thảo</option>
+              </select>
+            </div>
+            <div class="form-group half">
+              <label>Số lượng người tham gia</label>
+              <input type="number" min="1" placeholder="Nhập số lượng" />
+            </div>
+          </div>
+
+
+          <!-- Địa chỉ -->
+          <div class="form-group">
+            <label>Địa chỉ <span class="required">*</span></label>
+            <input type="text" placeholder="Nhập địa chỉ" required />
+          </div>
+
+
+          <!-- NGÀY + GIỜ BẮT ĐẦU -->
+          <div class="form-row">
+            <div class="form-group half">
+              <label>Ngày bắt đầu <span class="required">*</span></label>
+              <div class="date-input-wrapper">
+                <input type="text" class="date-input" readonly placeholder="dd/mm/yyyy" required />
+                <button type="button" class="date-trigger">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="form-group half">
+              <label>Thời gian bắt đầu <span class="required">*</span></label>
+              <div class="time-input-wrapper">
+                <input type="text" class="time-input" readonly placeholder="hh:mm" required />
+                <button type="button" class="time-trigger">
+                  <svg viewBox="0  Ng0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- NGÀY + GIỜ KẾT THÚC -->
+          <div class="form-row">
+            <div class="form-group half">
+              <label>Ngày kết thúc</label>
+              <div class="date-input-wrapper">
+                <input type="text" class="date-input" readonly placeholder="dd/mm/yyyy" />
+                <button type="button" class="date-trigger">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="form-group half">
+              <label>Thời gian kết thúc</label>
+              <div class="time-input-wrapper">
+                <input type="text" class="time-input" readonly placeholder="hh:mm" />
+                <button type="button" class="time-trigger">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Người tham gia -->
+          <div class="form-group">
+            <label>Người tham gia</label>
+            <div class="participants-container" id="participantsContainer">
+              <div class="participant-row template">
+                <input type="text" placeholder="Vai trò" class="role-input" />
+                <input type="text" placeholder="Tên người tham gia" class="name-input" />
+                <button type="button" class="remove-row">×</button>
+              </div>
+            </div>
+            <button type="button" class="btn-add-participant" id="addParticipant">
+              + Thêm người tham gia
+            </button>
+          </div>
+
+
+          <!-- HÌNH ẢNH -->
+          <div class="form-group">
+            <label>Hình ảnh sự kiện</label>
+            <div class="image-upload">
+              <input type="file" id="imageUpload" accept="image/*" style="display:none;" />
+              <label for="imageUpload" class="upload-area">
+                <div class="upload-content">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="17 8 12 3 7 8"/>
+                    <line x1="12" y1="3" x2="12" y2="15"/>
+                  </svg>
+                  <div class="upload-text">
+                    <span>Nhấp để tải lên hoặc kéo thả file vào đây</span>
+                    <small>Hỗ trợ định dạng: PNG, JPG, JPEG. Dung lượng tối đa 10MB</small>
+                  </div>
+                </div>
+              </label>
+              <div class="file-info" id="fileInfo">Không có tệp nào được chọn</div>
+            </div>
+          </div>
+
+
+          <!-- NÚT -->
+          <div class="form-actions">
+            <a href="/events" style="text-decoration: none;" type="button" class="btn-cancel">Hủy bỏ</a>
+            <button type="submit" class="btn-submit">Tạo sự kiện</button>
+          </div>
+        </form>
+      </div>
+
+
+      <!-- POPUP NGÀY -->
+      <div class="popup-calendar" id="datePopup"></div>
+
+
+      <!-- POPUP GIỜ -->
+      <div class="popup-time-new" id="timePopup">
+        <div class="time-picker-container">
+          <div class="time-unit">
+            <button class="arrow up">Up</button>
+            <div class="time-value hour">16</div>
+            <button class="arrow down">Down</button>
+          </div>
+          <div class="colon">:</div>
+          <div class="time-unit">
+            <button class="arrow up">Up</button>
+            <div class="time-value minute">15</div>
+            <button class="arrow down">Down</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+
+  <script src="/assets/js/create_event.js"></script>
+</body>
+</html>
+
